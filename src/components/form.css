@@ -1,0 +1,8 @@
+.formContainer{
+    display: flex;
+    flex-direction: column;
+}
+.formFields{
+    display: flex;
+    flex-direction: column;  
+}

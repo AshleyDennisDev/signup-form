@@ -1,14 +1,15 @@
-import { TextField } from '@mui/material';
-import Box from '@mui/material/Box';
+import { Button, TextField } from '@mui/material';
+import './form.css';
 
 export default function Form() {
   return (
-    <div className="App">
-      <h1>Sign Form</h1>
-      <form       
+    <div className="formContainer">
+      <p>Try it free 7 days then $20/month thereafter</p>
+      <form   
+      className='formField'    
         noValidate
         autoComplete="off">
-        <div>
+        <div className='formFields'>
         <TextField
           id="outlined-required"
           label="First Name"
@@ -26,7 +27,8 @@ export default function Form() {
           label="Password"
         />
         </div>
-
+        <Button variant="contained">CLAIM YOUR FREE TRIAL</Button>
+        <p>By clicking the button, you are agreeing to our Terms and Services</p>
       </form>
     </div>
   );

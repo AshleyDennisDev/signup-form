@@ -1,3 +1,21 @@
 .App {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-image: url('./assets/images/bg-intro-desktop.png');
+  background-color: rgb(240, 169, 145);
+}
+.appContent{
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 80%;
   text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: end;
+  align-items: center;
 }
