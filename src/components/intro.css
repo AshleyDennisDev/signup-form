@@ -1,5 +1,6 @@
 .introContainer{
     display: flex;
     flex-direction: column;
+    color: white;
     text-align: left;
 }

@@ -3,7 +3,7 @@
   padding: 0;
   height: 100vh;
   background-image: url('./assets/images/bg-intro-desktop.png');
-  background-color: rgb(240, 169, 145);
+  background-color: rgb(255, 122, 122);
 }
 .appContent{
   margin: 0;
