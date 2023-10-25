@@ -3,6 +3,8 @@ import './form.css';
 import { useState } from 'react';
 
 export default function Form() {
+const [submitSuccess, setSubmitSuccess] = useState(false)
+const [blankField, setBlankField] = useState({})
 const [form, setForm] = useState({
   firstName: '',
   lastName: '',
@@ -15,15 +17,42 @@ const onChangeForm = (e) => {
 }
 
 const handleSubmit = (event) => {
+  debugger
   event.preventDefault();
-  console.log(form)
-  setForm({  
-  firstName: '',
-  lastName: '',
-  emailAddress: '',
-  password: ''
-  })
-}
+  const findBlankFields = {};
+  if (form.firstName === '' || form.firstName === null) {
+    findBlankFields.firstName = true;
+    setSubmitSuccess(submitSuccess)
+    debugger
+  } 
+  if (form.lastName === '' || form.lastName === null) {
+    findBlankFields.lastName ="Please fill your last name"
+    setSubmitSuccess(false)
+  }  
+ if (form.emailAddress === '' || form.emailAddress === null) {
+   findBlankFields.emailAddress ="Please fill your email address"
+   setSubmitSuccess(false)
+  }  
+ if (form.password === '' || form.password === null) {
+   findBlankFields.password ="Please fill your password"
+   setSubmitSuccess(false)
+  }
+    setBlankField(findBlankFields)
+    debugger
+  
+    if(Object.keys(findBlankFields).length === 0) {
+      debugger
+      setSubmitSuccess(submitSuccess)
+      alert("Form Submitted successfully")
+      setForm({  
+        firstName: '',
+        lastName: '',
+        emailAddress: '',
+        password: ''
+      })
+      console.log(form)
+    }
+  }
 
 
   return (
@@ -38,7 +67,7 @@ const handleSubmit = (event) => {
         <div className='formFieldsWrapper'>
         <TextField
           className='formField'
-          id="outlined-required"
+          id={ submitSuccess ? "outlined-error":  "outlined-required" }
           label="First Name"
           margin="normal"
           name="firstName"
