@@ -11,37 +11,45 @@ const [form, setForm] = useState({
   emailAddress: '',
   password: ''
 })
+const [formError, setFormError] = useState({
+  errorFirstName: false,
+  errorLastName: false,
+  errorEmailAddress: false,
+  errorPassword: false
+})
+
 
 const onChangeForm = (e) => {
   setForm({...form, [e.target.name]: e.target.value})
 }
 
 const handleSubmit = (event) => {
-  debugger
   event.preventDefault();
   const findBlankFields = {};
   if (form.firstName === '' || form.firstName === null) {
     findBlankFields.firstName = true;
-    setSubmitSuccess(submitSuccess)
-    debugger
+    formError.errorFirstName = true;
+    setSubmitSuccess(false)
   } 
   if (form.lastName === '' || form.lastName === null) {
     findBlankFields.lastName ="Please fill your last name"
+    formError.errorLastName = true;
     setSubmitSuccess(false)
   }  
  if (form.emailAddress === '' || form.emailAddress === null) {
    findBlankFields.emailAddress ="Please fill your email address"
+   formError.errorEmailAddress = true;
    setSubmitSuccess(false)
   }  
  if (form.password === '' || form.password === null) {
    findBlankFields.password ="Please fill your password"
+   formError.errorPassword = true;
    setSubmitSuccess(false)
   }
     setBlankField(findBlankFields)
     debugger
   
     if(Object.keys(findBlankFields).length === 0) {
-      debugger
       setSubmitSuccess(submitSuccess)
       alert("Form Submitted successfully")
       setForm({  
@@ -51,6 +59,9 @@ const handleSubmit = (event) => {
         password: ''
       })
       console.log(form)
+    } else {  
+      setFormError(formError)    
+      alert("Form Needs Correction")
     }
   }
 
@@ -67,12 +78,13 @@ const handleSubmit = (event) => {
         <div className='formFieldsWrapper'>
         <TextField
           className='formField'
-          id={ submitSuccess ? "outlined-error":  "outlined-required" }
+          id="outlined-required"      
           label="First Name"
           margin="normal"
           name="firstName"
           value={form.firstName}
           onChange={onChangeForm}
+          error={formError.errorFirstName}
         />
         <TextField
           className='formField'
@@ -82,6 +94,7 @@ const handleSubmit = (event) => {
           name='lastName'
           value={form.lastName}
           onChange={onChangeForm}
+          error={formError.errorLastName}
           />
         <TextField
           className='formField'
@@ -91,6 +104,7 @@ const handleSubmit = (event) => {
           name='emailAddress'
           value={form.emailAddress}
           onChange={onChangeForm}
+          error={formError.errorEmailAddress}
         />
         <TextField
           className='formField'
@@ -100,6 +114,7 @@ const handleSubmit = (event) => {
           name="password"
           value={form.password}
           onChange={onChangeForm}
+          error={formError.errorPassword}
         />
         </div>
         <button className='formButton' type='submit' variant="contained">CLAIM YOUR FREE TRIAL</button>
