@@ -85,6 +85,7 @@ const handleSubmit = (event) => {
           value={form.firstName}
           onChange={onChangeForm}
           error={formError.errorFirstName}
+          helperText={formError.errorFirstName ? "First name can not be empty." : null}
         />
         <TextField
           className='formField'
@@ -95,6 +96,8 @@ const handleSubmit = (event) => {
           value={form.lastName}
           onChange={onChangeForm}
           error={formError.errorLastName}
+          helperText={formError.errorLastName ? "Last name can not be empty." : null}
+
           />
         <TextField
           className='formField'
@@ -105,6 +108,7 @@ const handleSubmit = (event) => {
           value={form.emailAddress}
           onChange={onChangeForm}
           error={formError.errorEmailAddress}
+          helperText={formError.errorEmailAddress ? "Please enter a valid email." : null}
         />
         <TextField
           className='formField'
@@ -115,6 +119,7 @@ const handleSubmit = (event) => {
           value={form.password}
           onChange={onChangeForm}
           error={formError.errorPassword}
+          helperText={formError.errorPassword ? "Password can not be empty" : null}
         />
         </div>
         <button className='formButton' type='submit' variant="contained">CLAIM YOUR FREE TRIAL</button>
