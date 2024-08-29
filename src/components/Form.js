@@ -37,17 +37,22 @@ const handleSubmit = (event) => {
     setSubmitSuccess(false)
   }  
  if (form.emailAddress === '' || form.emailAddress === null) {
+   form.emailAddress.includes('@')
    findBlankFields.emailAddress ="Please fill your email address"
    formError.errorEmailAddress = true;
    setSubmitSuccess(false)
   }  
+  if (!form.emailAddress.includes('@' && '.')) {
+    findBlankFields.emailAddress ="Please fill your email address"
+    formError.errorEmailAddress = true;
+    setSubmitSuccess(false)
+   } 
  if (form.password === '' || form.password === null) {
    findBlankFields.password ="Please fill your password"
    formError.errorPassword = true;
    setSubmitSuccess(false)
   }
     setBlankField(findBlankFields)
-    debugger
   
     if(Object.keys(findBlankFields).length === 0) {
       setSubmitSuccess(submitSuccess)
@@ -102,7 +107,7 @@ const handleSubmit = (event) => {
         <TextField
           className='formField'
           id="outlined-required"
-          label="Email Address"
+          label='Email Address'
           margin="normal"
           name='emailAddress'
           value={form.emailAddress}
