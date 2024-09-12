@@ -29,3 +29,8 @@
 .formButton:hover{
         background-color: rgb(65, 218, 124);
 }
+
+.formTerms{
+    color:hsl(0, 100%, 74%);
+    font-weight: 700;
+}

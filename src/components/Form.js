@@ -25,7 +25,7 @@ const onChangeForm = (e) => {
 
 const handleSubmit = (event) => {
   event.preventDefault();
-  const findBlankFields = {};
+  const findBlankFields = blankField;
   if (form.firstName === '' || form.firstName === null) {
     findBlankFields.firstName = true;
     formError.errorFirstName = true;
@@ -52,8 +52,9 @@ const handleSubmit = (event) => {
    formError.errorPassword = true;
    setSubmitSuccess(false)
   }
+
     setBlankField(findBlankFields)
-  
+    
     if(Object.keys(findBlankFields).length === 0) {
       setSubmitSuccess(submitSuccess)
       alert("Form Submitted successfully")
@@ -66,7 +67,7 @@ const handleSubmit = (event) => {
       console.log(form)
     } else {  
       setFormError(formError)   
-      alert("Form Needs Correction")
+      alert(Object.values(findBlankFields))
     }
   }
 
@@ -128,7 +129,7 @@ const handleSubmit = (event) => {
         />
         </div>
         <button className='formButton' type='submit' variant="contained">CLAIM YOUR FREE TRIAL</button>
-        <p>By clicking the button, you are agreeing to our Terms and Services</p>
+        <p>By clicking the button, you are agreeing to our <span className='formTerms'>Terms and Services</span> </p>
       </form>
     </div>
   );
