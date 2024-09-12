@@ -1,9 +1,12 @@
 .formContainer{
     display: flex;
     flex-direction: column;
-    padding: 40px;
+    padding: 25px;
     border-radius: 15px;
     background-color: white;
+    @media (min-width: 768px){
+        padding: 40px;
+    }
 }
 .formBanner{
     padding: 15px;

@@ -1,6 +1,11 @@
 .introContainer{
+    margin-top: 120px;
     display: flex;
     flex-direction: column;
     color: white;
     text-align: left;
+    @media (min-width: 768px){
+        margin-top: 0;
+        margin-right: 40px;
+      }
 }
