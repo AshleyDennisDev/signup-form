@@ -27,28 +27,28 @@ const handleSubmit = (event) => {
   event.preventDefault();
   const findBlankFields = blankField;
   if (form.firstName === '' || form.firstName === null) {
-    findBlankFields.firstName = true;
+    findBlankFields.firstName = "Please fill your First Name";
     formError.errorFirstName = true;
     setSubmitSuccess(false)
   } 
   if (form.lastName === '' || form.lastName === null) {
-    findBlankFields.lastName ="Please fill your last name"
+    findBlankFields.lastName ="Please fill your Last Name"
     formError.errorLastName = true;
     setSubmitSuccess(false)
   }  
  if (form.emailAddress === '' || form.emailAddress === null) {
    form.emailAddress.includes('@')
-   findBlankFields.emailAddress ="Please fill your email address"
+   findBlankFields.emailAddress ="Please fill your Email Address"
    formError.errorEmailAddress = true;
    setSubmitSuccess(false)
   }  
   if (!form.emailAddress.includes('@' && '.')) {
-    findBlankFields.emailAddress ="Please fill your email address"
+    findBlankFields.emailAddress ="Please enter proper Email Address"
     formError.errorEmailAddress = true;
     setSubmitSuccess(false)
    } 
  if (form.password === '' || form.password === null) {
-   findBlankFields.password ="Please fill your password"
+   findBlankFields.password ="Please fill your Password"
    formError.errorPassword = true;
    setSubmitSuccess(false)
   }
